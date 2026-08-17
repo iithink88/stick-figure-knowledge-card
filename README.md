@@ -8,7 +8,7 @@
 - 「把『什么是智能体』做成小黑人风格卡片」
 技能会自动：① 写图像提示词 → ② 竖版 9:16 出图。
 
-![什么是智能体 - 示例卡片](docs/example-preview.png)
+![什么是智能体 - 示例卡片](https://raw.githubusercontent.com/iithink88/stick-figure-knowledge-card/main/docs/example-preview.png)
 
 ## 与原扣子工作流的对应关系
 | 扣子节点 | 本技能实现 |
