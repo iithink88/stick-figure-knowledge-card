@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>什么是智能体 —— 火柴人知识卡片 v9</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #f5f5f0;
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    display: flex; justify-content: center; align-items: flex-start;
+    padding: 30px 10px; min-height: 100vh;
+  }
+  .card {
+    width: 100%; max-width: 900px;
+    background: #fff; border: 2px solid #222;
+    padding: 30px 24px 22px;
+    position: relative;
+  }
+  .card-title {
+    text-align: center; font-size: 26px; font-weight: 700;
+    color: #1a1a1a; letter-spacing: 3px; margin-bottom: 4px;
+  }
+  .card-subtitle {
+    text-align: center; font-size: 15px; color: #555;
+    margin-bottom: 26px; letter-spacing: 1px;
+  }
+  .cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .col {
+    border: 1.5px solid #222; border-radius: 6px;
+    padding: 20px 12px 14px; position: relative;
+    /* 不再 overflow:hidden —— 让顶部标签完整露出；图片出框由内部圆/框的 overflow 控制 */
+  }
+  .tag {
+    position: absolute; top: -13px; left: 16px;
+    background: #fff; border: 1.5px solid #222;
+    padding: 2px 14px; border-radius: 4px;
+    font-size: 14px; font-weight: 700; color: #222;
+    letter-spacing: 1px;
+  }
+  .col-text {
+    font-size: 12.5px; line-height: 1.7; color: #222;
+    margin-bottom: 12px; text-align: justify;
+  }
+
+  /* ===== 插图区域通用：限宽 + 裁剪，防止 AI 图出框 ===== */
+  .fig-area {
+    display: flex; justify-content: center; align-items: center;
+    min-height: 130px; margin-top: 4px;
+  }
+  .fig-box {
+    flex: 1 1 0; min-width: 0;
+    display: flex; justify-content: center; align-items: center;
+    overflow: hidden;
+  }
+  .fig-box img {
+    max-width: 100%; max-height: 104px;
+    width: auto; height: auto;
+    object-fit: contain; display: block;
+  }
+
+  /* 定义栏：大脑 + 火柴人 并排，各占一半 */
+  .def-figures {
+    display: flex; gap: 6px; width: 100%;
+    align-items: center; justify-content: center;
+  }
+  .def-figures .stick { flex: 0 0 auto; }
+
+  /* 特点栏：火柴人左 + 三圆右 */
+  .feat-layout {
+    display: flex; gap: 8px; align-items: center; justify-content: center;
+  }
+  .feat-stick { flex: 0 0 auto; }
+  .feat-icons { display: flex; flex-direction: column; gap: 6px; }
+  .feat-icons-row { display: flex; gap: 8px; }
+  .feat-icon-circle {
+    width: 52px; height: 52px; border: 1.3px solid #222;
+    border-radius: 50%; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    background: #fff;
+  }
+  .feat-icon-circle img {
+    width: 32px; height: 32px; object-fit: contain; display: block;
+  }
+  .feat-label {
+    font-size: 10px; color: #333; text-align: center;
+    margin-top: 3px; line-height: 1.2;
+  }
+
+  /* 场景栏：2×2 网格 */
+  .scene-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 10px 10px; justify-items: center;
+  }
+  .scene-item { display: flex; flex-direction: column; align-items: center; }
+  .scene-circle {
+    width: 60px; height: 60px; border: 1.3px solid #222;
+    border-radius: 50%; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    background: #fff;
+  }
+  .scene-circle img {
+    width: 46px; height: 46px; object-fit: contain; display: block;
+  }
+  .scene-label {
+    font-size: 10.5px; color: #333; margin-top: 4px;
+    white-space: nowrap;
+  }
+
+  /* 火柴人 SVG 简笔（已缩小） */
+  .stick { display: block; }
+  .stick svg { display: block; }
+
+  .footer-line {
+    text-align: center; font-size: 13px; color: #333;
+    margin-top: 18px; padding-top: 12px;
+    border-top: 1px dashed #aaa; letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <!-- 标题 -->
+  <div class="card-title">什么是智能体</div>
+  <div class="card-subtitle">深入了解智能体</div>
+
+  <!-- 三栏 -->
+  <div class="cols">
+
+    <!-- ══════════ 定义 ══════════ -->
+    <div class="col">
+      <div class="tag">定义</div>
+      <div class="col-text">
+        智能体是一种能够感知环境，并根据感知到的信息进行决策和行动的实体。
+      </div>
+      <div class="fig-area">
+        <div class="def-figures">
+          <!-- AI生成的大脑线描（限宽锁框） -->
+          <div class="fig-box">
+            <img src="A_clean_hand_drawn_line_art_il_2026-08-17T13-57-54.png" alt="大脑" />
+          </div>
+          <!-- 火柴人：SVG 简笔（缩小版，圆头+头发+挥手） -->
+          <div class="stick" style="width:60px;">
+            <svg viewBox="0 0 110 185" width="60" height="101" xmlns="http://www.w3.org/2000/svg">
+              <g fill="none" stroke="#222" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+                <!-- 头发 -->
+                <path d="M40 18 Q55 8 70 18" />
+                <path d="M44 14 L48 22" />
+                <path d="M55 11 L55 21" />
+                <path d="M64 14 L60 22" />
+                <!-- 头 -->
+                <circle cx="55" cy="36" r="21" />
+                <!-- 身体 -->
+                <line x1="55" y1="57" x2="55" y2="122" />
+                <!-- 举起挥手的左手 -->
+                <line x1="55" y1="69" x2="22" y2="42" />
+                <!-- 自然下垂的右手 -->
+                <line x1="55" y1="69" x2="86" y2="96" />
+                <!-- 双腿 -->
+                <line x1="55" y1="122" x2="38" y2="172" />
+                <line x1="55" y1="122" x2="74" y2="172" />
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ 特点 ══════════ -->
+    <div class="col">
+      <div class="tag">特点</div>
+      <div class="col-text">
+        智能体具有<strong>自主性</strong>、能对环境变化做出<strong>反应</strong>、可以与其他智能体进行<strong>交互</strong>等特点。
+      </div>
+      <div class="fig-area">
+        <div class="feat-layout">
+          <!-- 大火柴人：SVG 简笔（缩小版） -->
+          <div class="feat-stick stick" style="width:76px;">
+            <svg viewBox="0 0 110 185" width="76" height="128" xmlns="http://www.w3.org/2000/svg">
+              <g fill="none" stroke="#222" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M40 18 Q55 8 70 18" />
+                <path d="M44 14 L48 22" />
+                <path d="M55 11 L55 21" />
+                <path d="M64 14 L60 22" />
+                <circle cx="55" cy="36" r="21" />
+                <line x1="55" y1="57" x2="55" y2="122" />
+                <line x1="55" y1="69" x2="22" y2="42" />
+                <line x1="55" y1="69" x2="86" y2="96" />
+                <line x1="55" y1="122" x2="38" y2="172" />
+                <line x1="55" y1="122" x2="74" y2="172" />
+              </g>
+            </svg>
+          </div>
+          <div class="feat-icons">
+            <div class="feat-icons-row">
+              <div>
+                <div class="feat-icon-circle">
+                  <img src="icons_v2/Draw_ONLY_ONE_thing__a_tiny_si_2026-08-17T14-02-47.png" alt="自主性" />
+                </div>
+                <div class="feat-label">自主性</div>
+              </div>
+              <div>
+                <div class="feat-icon-circle">
+                  <img src="icons_v2/Draw_ONLY_ONE_thing__a_lightni_2026-08-17T14-02-48.png" alt="反应性" />
+                </div>
+                <div class="feat-label">反应性</div>
+              </div>
+            </div>
+            <div class="feat-icons-row" style="padding-left:34px;">
+              <div>
+                <div class="feat-icon-circle">
+                  <img src="icons_v2/Draw_ONLY_ONE_thing__two_small_2026-08-17T14-02-48.png" alt="社会性" />
+                </div>
+                <div class="feat-label">社会性</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ 应用场景 ══════════ -->
+    <div class="col">
+      <div class="tag">应用场景</div>
+      <div class="col-text">
+        智能体在<strong>智能家居</strong>、<strong>自动驾驶</strong>、<strong>客服</strong>等领域有广泛应用。
+      </div>
+      <div class="fig-area">
+        <div class="scene-grid">
+          <div class="scene-item">
+            <div class="scene-circle">
+              <img src="icons_v2/Draw_ONLY_ONE_thing__a_small_c_2026-08-17T14-02-48.png" alt="智能家居" />
+            </div>
+            <div class="scene-label">智能家居控制</div>
+          </div>
+          <div class="scene-item">
+            <div class="scene-circle">
+              <img src="icons_v2/Draw_ONLY_ONE_thing__a_ticket__2026-08-17T14-02-48.png" alt="自助购票" />
+            </div>
+            <div class="scene-label">自助购票</div>
+          </div>
+          <div class="scene-item">
+            <div class="scene-circle">
+              <img src="icons_v2/Draw_ONLY_ONE_thing__a_robot_i_2026-08-17T14-02-48.png" alt="自动驾驶" />
+            </div>
+            <div class="scene-label">自动汽车</div>
+          </div>
+          <div class="scene-item">
+            <div class="scene-circle">
+              <img src="icons_v2/Draw_ONLY_ONE_thing__a_custome_2026-08-17T14-02-48.png" alt="智能客服" />
+            </div>
+            <div class="scene-label">客服机器</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /cols -->
+
+  <!-- 底部金句 -->
+  <div class="footer-line">
+    智能体就像生活中的小助手，无处不在帮我们解决问题！
+  </div>
+</div>
+
+</body>
+</html>
