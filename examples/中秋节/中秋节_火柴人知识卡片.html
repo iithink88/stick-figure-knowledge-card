@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中秋节 —— 火柴人知识卡片</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #f5f5f0;
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    display: flex; justify-content: center; align-items: flex-start;
+    padding: 30px 10px; min-height: 100vh;
+  }
+  .card {
+    width: 100%; max-width: 900px;
+    background: #fff; border: 2px solid #222;
+    padding: 30px 24px 22px; position: relative;
+  }
+  .card-title {
+    text-align: center; font-size: 26px; font-weight: 700;
+    color: #1a1a1a; letter-spacing: 3px; margin-bottom: 4px;
+  }
+  .card-subtitle {
+    text-align: center; font-size: 15px; color: #555;
+    margin-bottom: 26px; letter-spacing: 1px;
+  }
+  .cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .col {
+    border: 1.5px solid #222; border-radius: 6px;
+    padding: 20px 12px 14px; position: relative;
+  }
+  .tag {
+    position: absolute; top: -13px; left: 16px;
+    background: #fff; border: 1.5px solid #222;
+    padding: 2px 14px; border-radius: 4px;
+    font-size: 14px; font-weight: 700; color: #222; letter-spacing: 1px;
+  }
+  .col-text {
+    font-size: 12.5px; line-height: 1.7; color: #222;
+    margin-bottom: 12px; text-align: justify;
+  }
+
+  /* 插图区域：限宽 + 裁剪，防止 AI 图出框 */
+  .fig-area { display: flex; justify-content: center; align-items: center; min-height: 130px; margin-top: 4px; }
+  .fig-box { flex: 1 1 0; min-width: 0; display: flex; justify-content: center; align-items: center; overflow: hidden; }
+  .fig-box img { max-width: 100%; max-height: 104px; width: auto; height: auto; object-fit: contain; display: block; }
+
+  /* 定义栏：主插图 + 小火柴人 并排 */
+  .def-figures { display: flex; gap: 6px; width: 100%; align-items: center; justify-content: center; }
+  .def-figures .stick { flex: 0 0 auto; }
+
+  /* 特点栏：大火柴人左 + 三圆右 */
+  .feat-layout { display: flex; gap: 8px; align-items: center; justify-content: center; }
+  .feat-stick { flex: 0 0 auto; }
+  .feat-icons { display: flex; flex-direction: column; gap: 6px; }
+  .feat-icons-row { display: flex; gap: 8px; }
+  .feat-icon-circle { width: 52px; height: 52px; border: 1.3px solid #222; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #fff; }
+  .feat-icon-circle img { width: 32px; height: 32px; object-fit: contain; display: block; }
+  .feat-label { font-size: 10px; color: #333; text-align: center; margin-top: 3px; line-height: 1.2; }
+
+  /* 场景栏：2×2 网格 */
+  .scene-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 10px; justify-items: center; }
+  .scene-item { display: flex; flex-direction: column; align-items: center; }
+  .scene-circle { width: 60px; height: 60px; border: 1.3px solid #222; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #fff; }
+  .scene-circle img { width: 46px; height: 46px; object-fit: contain; display: block; }
+  .scene-label { font-size: 10.5px; color: #333; margin-top: 4px; white-space: nowrap; }
+
+  /* 火柴人 SVG 简笔（复用） */
+  .stick { display: block; }
+  .stick svg { display: block; }
+
+  .footer-line { text-align: center; font-size: 13px; color: #333; margin-top: 18px; padding-top: 12px; border-top: 1px dashed #aaa; letter-spacing: 0.5px; }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="card-title">中秋节</div>
+  <div class="card-subtitle">中国人的团圆节 · 花好月圆人团圆</div>
+
+  <div class="cols">
+    <!-- ══════════ 定义 ══════════ -->
+    <div class="col">
+      <div class="tag">定义</div>
+      <div class="col-text">中秋节在农历八月十五，因恰值三秋之中而得名。是中国仅次于春节的第二大传统节日，以赏月、团圆、吃月饼为核心，寄托思念故乡与亲人之情。</div>
+      <div class="fig-area">
+        <div class="def-figures">
+          <div class="fig-box"><img src="icons/Draw_ONLY_ONE_thing__a_large_f_2026-08-17T14-31-12.png" alt="满月玉兔" /></div>
+          <!-- 小火柴人 SVG 简笔 -->
+          <div class="stick" style="width:60px;">
+            <svg viewBox="0 0 110 185" width="60" height="101" xmlns="http://www.w3.org/2000/svg">
+              <g fill="none" stroke="#222" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M40 18 Q55 8 70 18" /><path d="M44 14 L48 22" /><path d="M55 11 L55 21" /><path d="M64 14 L60 22" />
+                <circle cx="55" cy="36" r="21" />
+                <line x1="55" y1="57" x2="55" y2="122" />
+                <line x1="55" y1="69" x2="22" y2="42" />
+                <line x1="55" y1="69" x2="86" y2="96" />
+                <line x1="55" y1="122" x2="38" y2="172" />
+                <line x1="55" y1="122" x2="74" y2="172" />
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ 特点 ══════════ -->
+    <div class="col">
+      <div class="tag">特点</div>
+      <div class="col-text">中秋讲究一个"圆"字——月要圆、饼要圆、人更要圆。三件事凑齐了，才叫过了一个完整的中秋。</div>
+      <div class="fig-area">
+        <div class="feat-layout">
+          <!-- 大火柴人 SVG 简笔 -->
+          <div class="feat-stick stick" style="width:76px;">
+            <svg viewBox="0 0 110 185" width="76" height="128" xmlns="http://www.w3.org/2000/svg">
+              <g fill="none" stroke="#222" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M40 18 Q55 8 70 18" /><path d="M44 14 L48 22" /><path d="M55 11 L55 21" /><path d="M64 14 L60 22" />
+                <circle cx="55" cy="36" r="21" />
+                <line x1="55" y1="57" x2="55" y2="122" />
+                <line x1="55" y1="69" x2="22" y2="42" />
+                <line x1="55" y1="69" x2="86" y2="96" />
+                <line x1="55" y1="122" x2="38" y2="172" />
+                <line x1="55" y1="122" x2="74" y2="172" />
+              </g>
+            </svg>
+          </div>
+          <div class="feat-icons">
+            <div class="feat-icons-row">
+              <div><div class="feat-icon-circle"><img src="icons/Draw_ONLY_ONE_thing__three_sma_2026-08-17T14-31-12.png" alt="团圆" /></div><div class="feat-label">团圆</div></div>
+              <div><div class="feat-icon-circle"><img src="icons/Draw_ONLY_ONE_thing__a_large_c_2026-08-17T14-31-12.png" alt="月圆" /></div><div class="feat-label">月圆</div></div>
+            </div>
+            <div class="feat-icons-row" style="padding-left:34px;">
+              <div><div class="feat-icon-circle"><img src="icons/Draw_ONLY_ONE_thing__a_round_m_2026-08-17T14-31-12.png" alt="饼圆" /></div><div class="feat-label">饼圆</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ 怎么过 ══════════ -->
+    <div class="col">
+      <div class="tag">怎么过</div>
+      <div class="col-text">中秋夜，一家人围坐在一起，这样过：</div>
+      <div class="fig-area">
+        <div class="scene-grid">
+          <div class="scene-item"><div class="scene-circle"><img src="icons/Draw_ONLY_ONE_thing__a_tiny_si_2026-08-17T14-32-22.png" alt="赏月" /></div><div class="scene-label">赏月</div></div>
+          <div class="scene-item"><div class="scene-circle"><img src="icons/Draw_ONLY_ONE_thing__a_tiny_si_2026-08-17T14-32-21.png" alt="吃月饼" /></div><div class="scene-label">吃月饼</div></div>
+          <div class="scene-item"><div class="scene-circle"><img src="icons/Draw_ONLY_ONE_thing__a_tiny_si_2026-08-17T14-31-12.png" alt="提灯笼" /></div><div class="scene-label">提灯笼</div></div>
+          <div class="scene-item"><div class="scene-circle"><img src="icons/Draw_ONLY_ONE_thing__a_small_r_2026-08-17T14-31-12.png" alt="团圆饭" /></div><div class="scene-label">团圆饭</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-line">月亮再圆，不如家人坐在一起圆。</div>
+</div>
+
+</body>
+</html>
